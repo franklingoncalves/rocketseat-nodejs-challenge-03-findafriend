@@ -19,6 +19,11 @@
   },
   "homepage": "https://github.com/franklingoncalves/rocketseat-nodejs-challenge-03-findafriend#readme",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "eslint": "^9.27.0",
+    "eslint-plugin-vitest": "^0.5.4",
+    "prettier": "^3.5.3",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   }
