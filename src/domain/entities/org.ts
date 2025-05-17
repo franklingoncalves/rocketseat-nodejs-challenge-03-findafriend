@@ -30,6 +30,10 @@ export class Org {
     return this.props.name
   }
 
+  get city(): string {
+    return this.props.city
+  }  
+
   get email(): string {
     return this.props.email
   }
