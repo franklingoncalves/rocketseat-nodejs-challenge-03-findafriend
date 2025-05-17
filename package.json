@@ -1,0 +1,25 @@
+{
+  "name": "rocketseat-nodejs-challenge-03-findafriend",
+  "version": "1.0.0",
+  "description": "In this challenge, we will develop an API for pet adoption called the FindAFriend API, utilizing Clean Architecture, Design Patterns, SOLID principles, and testing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franklingoncalves/rocketseat-nodejs-challenge-03-findafriend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/franklingoncalves/rocketseat-nodejs-challenge-03-findafriend/issues"
+  },
+  "homepage": "https://github.com/franklingoncalves/rocketseat-nodejs-challenge-03-findafriend#readme",
+  "devDependencies": {
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}
