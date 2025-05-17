@@ -2,6 +2,7 @@ import { randomUUID } from 'crypto';
 
 export interface OrgProps {
   name: string
+  city: string
   email: string
   password: string
   whatsapp: string
