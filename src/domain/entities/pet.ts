@@ -13,6 +13,18 @@ export enum PetSize {
   LARGE = 'large',
 }
 
+export interface PetProps {
+  orgId: string
+  name: string
+  description?: string
+  age: PetAge
+  size: PetSize
+  energyLevel: number
+  independencyLevel: number
+  environment: PetSize
+  photos?: string[]
+}
+
 export class Pet {
   public readonly id: string
   public orgId: string
@@ -25,7 +37,7 @@ export class Pet {
   public environment: PetSize
   public photos: string[]
 
-  constructor(props: Omit<Pet, 'id'>, id?: string) {
+  constructor(props: PetProps, id?: string) {
     this.id = id ?? randomUUID()
     this.orgId = props.orgId
     this.name = props.name
