@@ -4,6 +4,7 @@ import { OrgAlreadyExistsError } from '@/domain/erros'
 
 interface CreateOrgUseCaseRequest {
   name: string
+  city: string
   email: string
   password: string
   whatsapp: string
@@ -19,6 +20,7 @@ export class CreateOrgUseCase {
 
   async execute({
     name,
+    city,
     email,
     password,
     whatsapp,
@@ -30,7 +32,7 @@ export class CreateOrgUseCase {
       throw new OrgAlreadyExistsError()
     }
 
-    const org = new Org({ name, email, password, whatsapp, address })
+    const org = new Org({ name, city, email, password, whatsapp, address })
 
     await this.orgsRepository.create(org)
 
