@@ -146,7 +146,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/franklin/Desktop/rocketseat-nodejs-challenge-03-findafriend/src/prisma/generated",
+      "value": "/Users/franklin/Desktop/rocketseat-nodejs-challenge-03-findafriend/prisma/generated",
       "fromEnvVar": null
     },
     "config": {
@@ -164,16 +164,17 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../.env",
-    "schemaEnvPath": "../../../.env"
+    "rootEnvPath": "../../.env",
+    "schemaEnvPath": "../../.env"
   },
-  "relativePath": "../../../prisma",
+  "relativePath": "..",
   "clientVersion": "6.8.2",
   "engineVersion": "2060c79ba17c6bb9f5823312b6f6b7f4a845738e",
   "datasourceNames": [
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -182,8 +183,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/prisma/generated\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Org {\n  id       String @id @default(uuid())\n  name     String\n  email    String @unique\n  password String\n  whatsapp String\n  city     String\n  address  String\n  pets     Pet[]\n}\n\nmodel Pet {\n  id                String   @id @default(uuid())\n  name              String\n  description       String?\n  age               String\n  size              String\n  energyLevel       Int\n  independencyLevel Int\n  environment       String\n  photos            String[]\n  orgId             String\n  org               Org      @relation(fields: [orgId], references: [id])\n}\n",
-  "inlineSchemaHash": "0c8a8c9545fd3e15198c4b892126c02f625640b4164bdc96d1cae49e20aab812",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../prisma/generated\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Org {\n  id       String @id @default(uuid())\n  name     String\n  email    String @unique\n  password String\n  whatsapp String\n  city     String\n  address  String\n  pets     Pet[]\n}\n\nmodel Pet {\n  id                String   @id @default(uuid())\n  name              String\n  description       String?\n  age               String\n  size              String\n  energyLevel       Int\n  independencyLevel Int\n  environment       String\n  photos            String[]\n  orgId             String\n  org               Org      @relation(fields: [orgId], references: [id])\n}\n",
+  "inlineSchemaHash": "4153a2177745615a12ab13ee4cb1a61d234d059fe36cb8a9f2052764b0ad01f8",
   "copyEngine": true
 }
 config.dirname = '/'
