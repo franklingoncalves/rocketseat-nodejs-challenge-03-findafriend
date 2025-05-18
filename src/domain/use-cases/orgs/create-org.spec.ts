@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { CreateOrgUseCase } from './create-org'
 import { InMemoryOrgsRepository } from '@/infra/repositories/in-memory/in-memory-orgs-repository'
-import { OrgAlreadyExistsError } from '@/domain/erros'
+import { MissingOrgInfoError, OrgAlreadyExistsError } from '@/domain/erros'
 
 let orgsRepository: InMemoryOrgsRepository
 let sut: CreateOrgUseCase
@@ -48,4 +48,30 @@ describe('Create Org Use Case', () => {
       }),
     ).rejects.toBeInstanceOf(OrgAlreadyExistsError)
   })
+
+  it('should not allow to create an org without address', async () => {
+    await expect(() =>
+        sut.execute({
+        name: 'Org 1',
+        city: 'NYC',
+        email: 'org@example.com',
+        password: '123456',
+        whatsapp: '123456789',
+        address: '',
+      })
+    ).rejects.toBeInstanceOf(MissingOrgInfoError)
+  })  
+
+  it('should not allow to create an org without whatsapp', async () => {
+    await expect(() =>
+        sut.execute({
+        name: 'Org 1',
+        city: 'NYC',
+        email: 'org@example.com',
+        password: '123456',
+        whatsapp: '',
+        address: 'Street 1',
+      })
+    ).rejects.toBeInstanceOf(MissingOrgInfoError)
+  })   
 })

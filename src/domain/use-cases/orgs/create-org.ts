@@ -1,6 +1,6 @@
 import { OrgsRepository } from '@/domain/repositories/orgs-repository'
 import { Org } from '@/domain/entities/org'
-import { OrgAlreadyExistsError } from '@/domain/erros'
+import { OrgAlreadyExistsError, MissingOrgInfoError } from '@/domain/erros'
 
 interface CreateOrgUseCaseRequest {
   name: string
@@ -32,6 +32,10 @@ export class CreateOrgUseCase {
       throw new OrgAlreadyExistsError()
     }
 
+    if (!address || !whatsapp) {
+      throw new MissingOrgInfoError()
+    }
+ 
     const org = new Org({ name, city, email, password, whatsapp, address })
 
     await this.orgsRepository.create(org)
